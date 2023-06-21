@@ -16,9 +16,7 @@ export default function App() {
               <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
             }
         />
-        {/* TODO: add restricted routes for register and login */}
         <Route path="/welcome" element={<WelcomePage />} />
-        {/* <Route path="/auth/:id" element={<AuthPage />} /> */}
         <Route path="/auth/:id" element={
                 <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
               }

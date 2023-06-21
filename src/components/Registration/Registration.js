@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import { register } from '../../redux/auth/operations';
 import '../AuthPage/Auth.css'
-import { useDispatch } from 'react-redux';
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string().min(2, 'Name must be at least 2 characters').max(32, 'Name must be at most 32 characters').required('Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().trim().required('Password is required')
+        .min(8, 'Password must be at least 8 characters').max(64, 'Password must be at most 64 characters')
+        .matches( /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$!%*?&]+$/, 'Password must contain at least one uppercase letter, and one lowercase letter'
+    ),
+})
 
 const initialValues = {
     name: '',
@@ -12,25 +22,6 @@ const initialValues = {
     showPassword: false
 };
 
-const validateForm = (values) => {
-    const errors = {};
-
-    if (!values.name) {
-        errors.name = 'Enter your name';
-    }
-
-    if (!values.email) {
-        errors.email = 'Enter your email';
-        }
-        
-    if (!values.password) {
-        errors.password = 'Enter your password';
-    }
-
-    return errors;
-};
-
-
 export default function Registration() {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
@@ -38,7 +29,6 @@ export default function Registration() {
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
     }
-
 
     const onSubmit = (values,  { resetForm }) => {
         const { name, email, password } = values;
@@ -52,7 +42,7 @@ export default function Registration() {
     return (
         <Formik
             initialValues={initialValues}
-            validate={validateForm}
+            validationSchema={validationSchema}
             onSubmit={onSubmit}
         >
             <Form className='auth-form'>
