@@ -1,0 +1,20 @@
+.screens {
+    background-color: #1F1F1F;
+    width: calc(100vw - 260px);
+    overflow-y: auto;
+    height: 100vh;
+}
+.dashboard {
+    padding: 10px 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard__text {
+    width: 486px;
+    color: rgba(255, 255, 255, 0.50);
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+}
