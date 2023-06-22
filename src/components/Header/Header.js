@@ -6,10 +6,10 @@ export default function Header() {
     return (
         <header>
             <p className='theme__text'>Theme</p>
-            <img className='theme__icon' src={arrowDownImage} />
+            <img alt='Choose a theme' className='theme__icon' src={arrowDownImage} />
 
             <p className='user-info__name'>Ivetta</p>
-            <img className='user-info__image' src={userImage} />
+            <img alt='User photo' className='user-info__image' src={userImage} />
         </header>
     )
 }

@@ -18,16 +18,16 @@ export default function Sidebar () {
             <p className='my-boards__text'>My boards</p>
             <div className='create-board'>
                 <p className='create-board__text'>Create a new board</p>
-                <button className='create-board__button'><img className='create-board__icon' src={plusImage} /></button>
+                <button className='create-board__button'><img className='create-board__icon' alt='Create a new boards' src={plusImage} /></button>
             </div>  
           </div>
           
           <div>
                 <div className='help'>
-                    <img src={cactusImage} className='help__image'/>
+                    <img alt='Cactus' src={cactusImage} className='help__image'/>
                     <p className='help__text'>If you need help with TaskPro, check out our support resources or reach out to our customer support team.</p>
                     <div className='need-help'>
-                      <img src={helpImage} className='need-help__icon' />
+                      <img alt='Need help?' src={helpImage} className='need-help__icon' />
                       <p className='need-help__text'>Need help?</p>
                     </div>
                 </div>  
