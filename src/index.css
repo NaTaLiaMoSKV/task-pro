@@ -10,15 +10,6 @@ code {
     monospace;
 }
 
-.welcome-wrapper {
-  height: 100vh;
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #home-page {
   display: flex;
-
 }
